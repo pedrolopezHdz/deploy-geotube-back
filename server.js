@@ -10,6 +10,7 @@ const { OAuth2Client } = require('google-auth-library');
 
 const app = express();
 const port = process.env.PORT || 3001;
+const host = process.env.HOST || 'localhost';
 
 // Verificar variables críticas al inicio
 console.log('Verificando variables de entorno:');
@@ -973,13 +974,13 @@ app.use((error, req, res, next) => {
 
 // Iniciar el servidor
 app.listen(port, () => {
-  console.log(`Servidor corriendo en http://localhost:${port}`);
-  console.log(`API disponible en http://localhost:${port}/api`);
-  console.log(`Ruta Comentarios Proyecto: GET/POST http://localhost:${port}/api/comentarios-proyecto`);
-  console.log(`Ruta Google Auth: POST http://localhost:${port}/api/auth/google`);
-  console.log(`Ruta Perfil: GET/PUT http://localhost:${port}/api/auth/profile`);
-  console.log(`Ruta Foto Perfil: PUT http://localhost:${port}/api/auth/profile/photo`);
-  console.log(`Ruta Cambiar Contraseña: POST http://localhost:${port}/api/auth/change-password`);
+  console.log(`Servidor corriendo en http://${host}:${port}`);
+  console.log(`API disponible en http://${host}:${port}/api`);
+  console.log(`Ruta Comentarios Proyecto: GET/POST http://${host}:${port}/api/comentarios-proyecto`);
+  console.log(`Ruta Google Auth: POST http://${host}:${port}/api/auth/google`);
+  console.log(`Ruta Perfil: GET/PUT http://${host}:${port}/api/auth/profile`);
+  console.log(`Ruta Foto Perfil: PUT http://${host}:${port}/api/auth/profile/photo`);
+  console.log(`Ruta Cambiar Contraseña: POST http://${host}:${port}/api/auth/change-password`);
   console.log(`JWT Configurado: ${JWT_SECRET ? 'SI' : 'NO'}`);
   console.log(`Google Client ID Configurado: ${GOOGLE_CLIENT_ID ? 'SI' : 'NO'}`);
 });
