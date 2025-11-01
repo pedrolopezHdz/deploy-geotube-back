@@ -25,6 +25,7 @@ const db = mysql.createConnection({
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || '12345',
   database: process.env.DB_NAME || 'geotube_db',
+  port: parseInt(process.env.DB_PORT),
 });
 
 // Conectar a la base de datos
