@@ -38,7 +38,7 @@ db.connect((err) => {
 });
 
 const allowedOrigins = [
-  'https://deploy-geotube-front-git-master-thrs-projects-5f31e2f6.vercel.app', // tu frontend en producción
+  'https://deploy-geotube-front.vercel.app/', // tu frontend en producción
   'http://localhost:3000'                // útil para desarrollo local
 ];
 
