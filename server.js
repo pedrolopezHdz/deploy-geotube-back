@@ -37,11 +37,19 @@ db.connect((err) => {
   console.log('Connected to MySQL as id ' + db.threadId);
 });
 
+const allowedOrigins = [
+  'https://deploy-geotube-front-git-master-thrs-projects-5f31e2f6.vercel.app', // tu frontend en producción
+  'http://localhost:3000'                // útil para desarrollo local
+];
+
+
+
 // Middleware para habilitar CORS y JSON
 app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true
+  origin: allowedOrigins,
+  credentials: true, // si usas cookies o headers personalizados
 }));
+
 app.use(express.json({ limit: '10mb' }));
 
 // API Keys
